@@ -1,0 +1,149 @@
+#search{
+    position: absolute;
+    left:550px;
+    top: 15px;
+    width: 20%;
+    height: 40px;
+    z-index: 2;
+    size: auto;
+    font-size: larger;
+    border-radius: 10px;
+}
+.btn-primary.search-btn{
+    position: relative;
+
+    right: 620px;
+    top: 1px;
+    width: 90px;
+    height: 50px;
+    z-index: 2;
+    size: auto;
+    font-size: larger;
+    border-radius: 10px;
+}
+#result{
+    position: absolute;
+    display: flex;
+    left:500px;
+    top: 60px;
+    width: 700%;
+    height: 90px;
+    z-index: 2;
+    size: landscape;
+    font-size: 12px;
+}
+.table.search{
+    background: white;
+    color: black;
+    font-size: 19px;
+    font-weight: normal;
+    width: 150%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+
+#add-btn{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    left: 1550px;
+    font-size: 20px;
+    top: 0px;
+}
+#edit-roduct{
+    position: absolute;
+    width: 160px;
+    height: 33px;
+    left: 675px;
+    top: 0px;
+}
+.navbar-brand{
+    position: absolute;
+    left:75px;
+    top: 0px;
+    width: 300px;
+    height: 22px;
+    z-index: 10;
+    font-size: 2rem;
+
+}
+.card.product-list{
+    width: 200%;
+    right: 500px;
+    height: 100%;
+    font-size: 25px;
+
+}
+.card.search-result{
+    width: 200%;
+    right: 500px;
+    height: 100%;
+    font-size: 25px;
+}
+
+
+.card.category{
+    width: 200%;
+    right: 500px;
+    height: 100%;
+    font-size: 25px;
+}
+#add-btn-category{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    left: 1550px;
+    font-size: 20px;
+    top: 0px;
+}
+
+.card.flavors{
+    width: 200%;
+    right: 500px;
+    height: 100%;
+    font-size: 25px;
+}
+#add-btn\ flavors{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    left: 1550px;
+    font-size: 20px;
+    top: 0px;
+}
+
+.card.manufact{
+    width: 200%;
+    right: 500px;
+    height: 100%;
+    font-size: 25px;
+}
+#add-btn\ manufac{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    left: 1550px;
+    font-size: 16px;
+    top: 0px;
+}
+
+.card.location{
+    width: 200%;
+    right: 500px;
+    height: 100%;
+    font-size: 25px;
+}
+#add-btn-location{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    left: 1550px;
+    font-size: 16px;
+    top: 0px;
+}
+
+
+

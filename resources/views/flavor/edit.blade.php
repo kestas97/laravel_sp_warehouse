@@ -1,0 +1,29 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Edit flavor') }}</div>
+
+                    <div class="card-body">
+                        <form class="form " method="post" action="{{route('flavor.update', $flavor->id)}}">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                                <input value="{{$flavor->name}}" type="text" name="name" class="form-control" placeholder="category">
+                                <input type="submit" value="Update" class="btn btn-primary">
+                                @if(session()->has('message'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('message') }}
+                                    </div>
+                                @endif
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
