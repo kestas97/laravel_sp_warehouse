@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-
-//        $data['products'] = Product::all();
-//        return view('product.search-result', $data);
+        $this->middleware('auth');
     }
+
     public function search(Request $request)
     {
         $search = $request->input('search');

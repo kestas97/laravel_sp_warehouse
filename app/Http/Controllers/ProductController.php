@@ -12,6 +12,8 @@ use App\Models\ProductLocation;
 use Illuminate\Http\Request;
 
 
+
+
 class ProductController extends Controller
 {
     public function __construct()
@@ -24,16 +26,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $data['products'] = Product::paginate(13);
 
         return view('product.list', $data);
     }
-
-
-
-
 
 
     /**
@@ -106,11 +104,6 @@ class ProductController extends Controller
         return view('product.edit', $data);
     }
 
-//    public function searchResult()
-//    {
-//        $data['products'] = Product::all();
-//        return view('product.search-result', $data);
-//    }
 
     /**
      * Update the specified resource in storage.

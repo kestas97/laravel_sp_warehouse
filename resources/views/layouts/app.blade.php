@@ -61,7 +61,7 @@
                                 <form class="text-center" action="{{route('find')}}" method="GET">
 
                                     <input type="search" id="search" name="search" class="position-absolute-parent" placeholder="search product" autocomplete="off">
-                                    <button type="submit" class="btn-primary search-btn">Search</button>
+                                    <button type="submit" class="btn btn-primary col-2 float-right search-btn">Search</button>
                                 </form>
                             <!-- Search autocomplite result -->
                             <div id="result" class="position-absolute-child" style="display:none">

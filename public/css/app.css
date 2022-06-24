@@ -11299,7 +11299,6 @@ textarea.form-control-lg {
 }
 .btn-primary.search-btn{
     position: relative;
-
     right: 620px;
     top: 1px;
     width: 90px;
@@ -11430,6 +11429,14 @@ textarea.form-control-lg {
     height: 40px;
     left: 1550px;
     font-size: 16px;
+    top: 0px;
+}
+#import-btn{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    left: 1350px;
+    font-size: 20px;
     top: 0px;
 }
 

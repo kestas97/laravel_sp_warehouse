@@ -6,6 +6,7 @@
             <div class="col-md-8">
                 <div class="card product-list">
                     <div class="card-header">{{ __('Products list') }}
+                        <td><a href="{{route('product-import.create')}}" id="import-btn" class="btn btn-success col-2 float-right">Add CSV</a> </td>
                         <td><a href="{{route('product.create')}}" id="add-btn" class="btn btn-primary col-2 float-right">Add product</a></td>
 
                     </div>

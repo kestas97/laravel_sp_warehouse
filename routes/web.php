@@ -61,8 +61,17 @@ Route::controller(\App\Http\Controllers\ProductLocationController::class)->group
 
 Route::resource('/product', 'App\Http\Controllers\ProductController');
 
-Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
-Route::get('/search-result', [App\Http\Controllers\SearchController::class, 'find'])->name('find');
+Route::controller(\App\Http\Controllers\SearchController::class)->group(function () {
+    Route::get('/search','search')->name('search');
+    Route::get('/search-result','find')->name('find');
+});
+
+Route::controller(\App\Http\Controllers\ImportController::class)->group(function () {
+    Route::get('products/import/create','createImport')->name('product-import.create');
+    Route::post('/products/import','import')->name('product.import');
+});
+
+
 
 
 
