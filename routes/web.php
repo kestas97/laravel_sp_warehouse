@@ -71,6 +71,8 @@ Route::controller(\App\Http\Controllers\ImportController::class)->group(function
     Route::post('/products/import','import')->name('product.import');
 });
 
+Route::get('/qrcode/{id}', [App\Http\Controllers\ProductController::class, 'generateQr'])->name('generate');
+
 
 
 

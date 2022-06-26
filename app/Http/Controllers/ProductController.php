@@ -10,8 +10,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\ProductLocation;
 use Illuminate\Http\Request;
-
-
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class ProductController extends Controller
@@ -145,5 +144,13 @@ class ProductController extends Controller
 
         return back()->with('message', 'Product is deleted');
     }
+
+    public function generateQr($id)
+    {
+        $data = Product::findOrFail($id);
+        $qrcode = QrCode::size(400)->generate('http://127.0.0.1:8000/product/'.$data->id);
+        return view('product.qrcode', compact('qrcode'));
+    }
+
 
 }

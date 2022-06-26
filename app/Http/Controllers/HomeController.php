@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function landingpage()
     {
-        $data['products'] = Product::paginate(6);
+        $data['products'] = Product::paginate(13);
         return view('landingpage', $data);
     }
 
