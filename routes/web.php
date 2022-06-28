@@ -73,6 +73,11 @@ Route::controller(\App\Http\Controllers\ImportController::class)->group(function
 
 Route::get('/qrcode/{id}', [App\Http\Controllers\ProductController::class, 'generateQr'])->name('generate');
 
+Route::get('/users-list', [App\Http\Controllers\AdminController::class, 'index'])->name('users.list');
+
+Route::post('/activate-user/{userId}', [App\Http\Controllers\AdminController::class, 'activateUser'])->name('user.activate');
+
+Route::post('/deactivate-user/{userId}', [App\Http\Controllers\AdminController::class, 'deactivateUser'])->name('user.deactivate');
 
 
 
