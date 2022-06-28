@@ -37,13 +37,11 @@ class AdminController extends Controller
         return back()->with('message', 'User is inactivated');
     }
 
-//    public function confirm($userId)
-//    {
-//        $user = User::find($userId);
-//        $user->active = 1;
-//        $user->save();
-//
-//        return response()->json(['success' => "Status change successfully."]);
-//    }
+    public function destroy($userId)
+    {
+        $user = User::find($userId);
+        $user->delete();
+        return back()->with('message', 'User is deleted');
+    }
 
 }

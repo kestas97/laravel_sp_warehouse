@@ -79,6 +79,8 @@ Route::post('/activate-user/{userId}', [App\Http\Controllers\AdminController::cl
 
 Route::post('/deactivate-user/{userId}', [App\Http\Controllers\AdminController::class, 'deactivateUser'])->name('user.deactivate');
 
+Route::delete('/delete-user/{userId}', [App\Http\Controllers\AdminController::class, 'destroy'] )->name('destroy.user');
+
 
 
 
