@@ -25,6 +25,9 @@ class ManufacturerController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:20'
+        ]);
         $manufacturer = new Manufacturer();
 
         $manufacturer->name = $request->post('name');
@@ -43,6 +46,9 @@ class ManufacturerController extends Controller
 
     public function update(Request $request, $manufacturerId)
     {
+        $request->validate([
+            'name' => 'required|max:20'
+        ]);
         $manufacturer = Manufacturer::find($manufacturerId);
         $manufacturer->name = $request->post('name');
         $manufacturer->save();

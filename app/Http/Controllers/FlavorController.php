@@ -25,6 +25,9 @@ class FlavorController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:20'
+        ]);
         $flavor = new Flavor();
 
         $flavor->name = $request->post('name');
@@ -43,6 +46,9 @@ class FlavorController extends Controller
 
     public function update(Request $request, $flavorId)
     {
+        $request->validate([
+            'name' => 'required|max:20'
+        ]);
         $flavor = Flavor::find($flavorId);
         $flavor->name = $request->post('name');
         $flavor->save();

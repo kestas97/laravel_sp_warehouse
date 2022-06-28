@@ -17,6 +17,15 @@
                                 <input value="{{$prodLocation->queue}}" type="text" name="queue" class="form-control" placeholder="queue">
 
                                 <input type="submit" value="Update" class="btn btn-primary">
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{$error}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 @if(session()->has('message'))
                                     <div class="alert alert-success">
                                         {{ session()->get('message') }}

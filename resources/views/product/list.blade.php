@@ -23,6 +23,8 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Location</th>
                                 <th scope="col">Quantity</th>
+                                <th scope="col">QR</th>
+
 
                             </tr>
                             </thead>
@@ -37,7 +39,7 @@
                                     <td>{{$product->category->name}}</td>
                                     <td>{{$product->location->position . '-' .$product->location->rack . '-' .$product->location->queue }}</td>
                                     <td>{{$product->quantity}}</td>
-                                    <td><a href="{{route('generate', $product->id)}}">Generate</a> </td>
+                                    <td><a href="{{route('generate', $product->id)}}" class="btn btn-primary">Generate</a> </td>
                                     <td><a href="{{route('product.edit', $product->id)}}" class="btn btn-primary">edit</a></td>
                                     <form method="POST" action="{{route('product.destroy', $product->id)}}">
                                         @csrf

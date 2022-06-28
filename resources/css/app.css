@@ -11,13 +11,13 @@
 }
 .btn-primary.search-btn{
     position: relative;
-    right: 620px;
+    left: 70px;
     top: 1px;
     width: 90px;
     height: 50px;
     z-index: 2;
     size: auto;
-    font-size: larger;
+    font-size: 22px;
     border-radius: 10px;
 }
 #result{
@@ -67,10 +67,13 @@
     height: 22px;
     z-index: 10;
     font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    color: #0f9cf3 !important;
 
 }
-#navbar-top{
-
+.bg-white{
+    background-color: #252b3b !important;
 }
 .card.product-list{
     width: 200%;
@@ -154,6 +157,31 @@
     font-size: 20px;
     top: 0px;
 }
+
+
+.container.navbar{
+    background-color: black;
+}
+
+
+.nav-item.dropdown{
+    position: relative;
+    color: white;
+    font-weight: normal;
+    font-size: 25px;
+    left: 300px;
+}
+#navbarDropdown{
+    color: white;
+}
+.navbar-nav.ms-auto{
+    font-size: 25px;
+}
+#nav-link\ regandlog{
+    color: white;
+}
+
+
 
 
 

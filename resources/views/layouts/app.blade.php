@@ -22,12 +22,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar-header" id="app">
+    <div class="navbar-header" id="app" >
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="navbar-top">
             <div class="container">
                 <div class="navbar-brand">
                 <a class="navbar-brand " id="logo" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    S P
                 </a>
                 </div>
 
@@ -47,13 +47,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" id="nav-link regandlog" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" id="nav-link regandlog" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -67,26 +67,70 @@
                             <div id="result" class="position-absolute-child" style="display:none">
                                 <ul class="position-relative" id="productList"></ul>
                             </div>
-
+                            <!-- location dropdown -->
                             <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Locations
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('prod-location.list') }}">
+                                        Locations list
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('prod-location.create') }}">
+                                        Create new location
+                                    </a>
+                                </div>
+                            <!--flavors dropdown -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Flavors
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('flavors.list') }}">
+                                        Flavors list
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('flavor.create') }}">
+                                        Create new flavor
+                                    </a>
+                                </div>
+                            <!-- manufacturer dropdown -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Manufacturers
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('manufacturer.list') }}">
+                                        Manufacturers list
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('manufacturer.create') }}">
+                                        Create manufacturer
+                                    </a>
+                                </div>
+                            <!--category dropdownd -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Categories
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('categories.list') }}">
+                                        Categories
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category.create') }}">
+                                        Create category
+                                    </a>
+                                </div>
+                                <!-- admin dropdown-->
+                            <li class="nav-item dropdown ">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('categories.list') }}">
-                                       Categories
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('flavors.list') }}">
-                                        Flavors
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('manufacturer.list') }}">
-                                        Manufacturers
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('prod-location.list') }}">
-                                        Product locations
-                                    </a>
+
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -105,12 +149,13 @@
             </div>
         </nav>
 
-
-        <main class="py-4">
+        <body>
+        <main class="py-4 content">
             @yield('content')
 
 
         </main>
+        </body>
     </div>
     <script type="text/javascript">
         $(document).ready(function(){

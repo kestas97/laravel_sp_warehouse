@@ -25,6 +25,9 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+           'name' => 'required|max:20'
+        ]);
         $category = new Category();
 
         $category->name = $request->post('name');
@@ -43,6 +46,9 @@ class CategoryController extends Controller
 
     public function update(Request $request, $categoryId)
     {
+        $request->validate([
+            'name' => 'required|max:20'
+        ]);
         $category = Category::find($categoryId);
         $category->name = $request->post('name');
         $category->save();

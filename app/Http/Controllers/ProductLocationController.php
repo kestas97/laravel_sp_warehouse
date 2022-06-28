@@ -25,6 +25,11 @@ class ProductLocationController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'position' => 'required|max:20',
+            'rack' => 'required|numeric',
+            'queue' => 'required|numeric'
+        ]);
         $prodLocation = new ProductLocation();
 
         $prodLocation->position = $request->post('position');
@@ -45,6 +50,11 @@ class ProductLocationController extends Controller
 
     public function update(Request $request, $prodLocationId)
     {
+        $request->validate([
+            'position' => 'required|max:20',
+            'rack' => 'required|numeric',
+            'queue' => 'required|numeric'
+        ]);
         $prodLocation = ProductLocation::find($prodLocationId);
         $prodLocation->position = $request->post('position');
         $prodLocation->rack = $request->post('rack');
