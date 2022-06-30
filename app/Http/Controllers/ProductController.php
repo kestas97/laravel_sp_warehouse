@@ -11,8 +11,8 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\ProductLocation;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use Illuminate\Support\Facades\Storage;
-use BaconQrCode\Renderer\Image\ImagickImageBackEnd;
+
+
 
 
 class ProductController extends Controller
