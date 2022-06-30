@@ -19,7 +19,7 @@ class ImportController extends Controller
         return view('product-import.import');
     }
 
-    public function import()
+    public function store()
     {
         Excel::import(new ProductImport(),request()->file('file'), \Maatwebsite\Excel\Excel::CSV);
 

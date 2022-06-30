@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'landingpage'])->name('homepage');
 
 Auth::routes();
@@ -57,9 +53,14 @@ Route::controller(\App\Http\Controllers\ProductLocationController::class)->group
     Route::get('product/location/edit/{prodLocationId}',  'edit')->name('prod-location.edit');
     Route::put('product/location/{prodLocationId}',  'update')->name('prod-location.update');
     Route::delete('product/location/{prodLocationId}', 'destroy')->name('prod-location.delete');
+
 });
 
 Route::resource('/product', 'App\Http\Controllers\ProductController');
+Route::get('/qrcode/{id}', [App\Http\Controllers\ProductController::class, 'generateQr'])->name('generate');
+Route::get('/download/qr/{id}', [App\Http\Controllers\ProductController::class, 'downloadQr'])->name('qrcode.download');
+
+
 
 Route::controller(\App\Http\Controllers\SearchController::class)->group(function () {
     Route::get('/search','search')->name('search');
@@ -68,19 +69,14 @@ Route::controller(\App\Http\Controllers\SearchController::class)->group(function
 
 Route::controller(\App\Http\Controllers\ImportController::class)->group(function () {
     Route::get('products/import/create','createImport')->name('product-import.create');
-    Route::post('/products/import','import')->name('product.import');
+    Route::post('/products/import','store')->name('product.import');
 });
-
-Route::get('/qrcode/{id}', [App\Http\Controllers\ProductController::class, 'generateQr'])->name('generate');
-
-Route::get('/users-list', [App\Http\Controllers\AdminController::class, 'index'])->name('users.list');
-
-Route::post('/activate-user/{userId}', [App\Http\Controllers\AdminController::class, 'activateUser'])->name('user.activate');
-
-Route::post('/deactivate-user/{userId}', [App\Http\Controllers\AdminController::class, 'deactivateUser'])->name('user.deactivate');
-
-Route::delete('/delete-user/{userId}', [App\Http\Controllers\AdminController::class, 'destroy'] )->name('destroy.user');
-
+Route::controller(\App\Http\Controllers\AdminController::class)->group(function () {
+    Route::get('/users-list',  'index')->name('users.list');
+    Route::post('/activate-user/{userId}', 'activateUser')->name('user.activate');
+    Route::post('/deactivate-user/{userId}', 'deactivateUser')->name('user.deactivate');
+    Route::delete('/delete-user/{userId}', 'destroy' )->name('destroy.user');
+});
 
 
 

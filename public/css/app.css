@@ -11469,6 +11469,20 @@ textarea.form-control-lg {
     color: white;
 }
 
+.card.show-product{
+    width: 100%;
+    right: 0px;
+    height: 100%;
+    font-size: 25px;
+}
+#edit-roduct{
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+}
+.card-header.edit{
+    font-size: 20px;
+}
 
 
 

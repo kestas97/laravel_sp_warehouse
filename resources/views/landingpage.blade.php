@@ -4,5 +4,4 @@
 
     @include('product.list')
 
-
 @endsection

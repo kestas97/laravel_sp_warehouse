@@ -11,6 +11,8 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\ProductLocation;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\Storage;
+use BaconQrCode\Renderer\Image\ImagickImageBackEnd;
 
 
 class ProductController extends Controller
@@ -147,10 +149,19 @@ class ProductController extends Controller
 
     public function generateQr($id)
     {
+
         $data = Product::findOrFail($id);
-        $qrcode = QrCode::size(400)->generate('http://127.0.0.1:8000/product/'.$data->id);
+        $qrcode = QrCode::size(400)->format('svg')->generate('http://127.0.0.1:8000/product/'.$data->id);
         return view('product.qrcode', compact('qrcode'));
     }
+
+    public function downloadQr($id)
+    {
+        $data = Product::findOrFail($id);
+        $qrcode = QrCode::size(400)->format('svg')->generate('http://127.0.0.1:8000/product/'.$data->id);
+        return view('product.qrcode-download', compact('qrcode'));
+    }
+
 
 
 }

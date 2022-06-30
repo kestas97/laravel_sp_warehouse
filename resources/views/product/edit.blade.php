@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Edit information about product') }}</div>
+                    <div class="card-header edit">{{ __('Edit information about product') }}</div>
 
                     <div class="card-body">
                         <form class="form " method="post" action="{{route('product.update', $product->id )}}" enctype="multipart/form-data">
@@ -13,7 +13,7 @@
                             @method('PUT')
                             <div class="form-group">
                                 @if($product->image)
-                                    <img src="{{url("public/image/".$product->image)}}" style="height: 200px; width: 300px">
+                                    <img src="{{url("public/image/".$product->image)}}" style="height: 350px; width: 400px">
                                 @else
                                     <p>No image found</p>
                                 @endif

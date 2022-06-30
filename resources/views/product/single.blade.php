@@ -4,12 +4,12 @@
     <div class="container">
         <div class="row justify-content-center" style="margin: 0 auto 0 auto">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card show-product">
                     <td><a href="{{route('product.edit', $product->id)}}" id="edit-roduct" class="btn btn-primary  ">edit</a></td>
 
                     <div class="card-header">{{$product->title}}</div>
                     <td>
-                        <img src="/public/image/{{$product->image}}" style="height: 200px; width: 350px";>
+                        <img src="/public/image/{{$product->image}}" style="height: 350px; width: 400px">
                     </td>
                     <div class="card-body">
                         <div class="col-6">
