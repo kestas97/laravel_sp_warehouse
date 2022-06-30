@@ -162,6 +162,10 @@ class ProductController extends Controller
         return view('product.qrcode-download', compact('qrcode'));
     }
 
+    public function newfunction()
+    {
+
+    }
 
 
 }

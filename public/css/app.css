@@ -11336,7 +11336,7 @@ textarea.form-control-lg {
     position: absolute;
     width: 160px;
     height: 40px;
-    left: 1550px;
+    left: 1720px;
     font-size: 20px;
     top: 0px;
 }
@@ -11364,7 +11364,7 @@ textarea.form-control-lg {
     background-color: #252b3b !important;
 }
 .card.product-list{
-    width: 200%;
+    width: 220%;
     right: 500px;
     height: 100%;
     font-size: 25px;
@@ -11441,7 +11441,7 @@ textarea.form-control-lg {
     position: absolute;
     width: 160px;
     height: 40px;
-    left: 1350px;
+    left: 1500px;
     font-size: 20px;
     top: 0px;
 }
@@ -11481,6 +11481,11 @@ textarea.form-control-lg {
     font-size: 20px;
 }
 .card-header.edit{
+    font-size: 20px;
+}
+.dropdown-menu.dropdown-menu-end{
+    width: 210px;
+    height: 100px;
     font-size: 20px;
 }
 
