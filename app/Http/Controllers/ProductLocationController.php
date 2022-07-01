@@ -11,6 +11,7 @@ class ProductLocationController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         $data['productLocations'] = ProductLocation::paginate(13);

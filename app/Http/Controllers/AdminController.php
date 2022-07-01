@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -15,9 +16,12 @@ class AdminController extends Controller
 
     public function index()
     {
-
-        $data['users'] = User::paginate(13);
-
+        $user = Auth::user();
+        if ($user->role_id != 1){
+            return redirect()->route('homepage');
+        }else{
+            $data['users'] = User::paginate(13);
+        }
         return view('admin.user-panel', $data);
     }
 

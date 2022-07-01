@@ -6,7 +6,8 @@
             <div class="col-md-8">
                 <div class="card manufact">
                     <div class="card-header">{{ __('Manufacturer list') }}
-                        <td><a  href="{{route('manufacturer.create')}}" id="add-btn manufac" class="btn btn-primary col-2 float-right">Add manufacturer</a></td>
+                        <td><a href="{{route('manufacturer.create')}}" id="add-btn manufac"
+                               class="btn btn-primary col-2 float-right">Add manufacturer</a></td>
                     </div>
 
                     <div class="card-body">
@@ -22,7 +23,8 @@
                                 <tr>
                                     <td>{{$manufacturer->id}}</td>
                                     <td>{{$manufacturer->name}}</td>
-                                    <td><a href="{{route('manufacturer.edit', $manufacturer->id)}}" class="btn btn-primary">edit</a></td>
+                                    <td><a href="{{route('manufacturer.edit', $manufacturer->id)}}"
+                                           class="btn btn-primary">edit</a></td>
                                     <form method="POST" action="{{route('manufacturer.delete', $manufacturer->id)}}">
                                         @csrf
                                         @method('DELETE')

@@ -12,9 +12,12 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <input value="{{$prodLocation->position}}" type="text" name="position" class="form-control" placeholder="position">
-                                <input value="{{$prodLocation->rack}}" type="text" name="rack" class="form-control" placeholder="rack">
-                                <input value="{{$prodLocation->queue}}" type="text" name="queue" class="form-control" placeholder="queue">
+                                <input value="{{$prodLocation->position}}" type="text" name="position"
+                                       class="form-control" placeholder="position">
+                                <input value="{{$prodLocation->rack}}" type="text" name="rack" class="form-control"
+                                       placeholder="rack">
+                                <input value="{{$prodLocation->queue}}" type="text" name="queue" class="form-control"
+                                       placeholder="queue">
 
                                 <input type="submit" value="Update" class="btn btn-primary">
                                 @if($errors->any())

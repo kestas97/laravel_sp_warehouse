@@ -8,7 +8,8 @@
             <div class="col-md-8">
                 <div class="card location">
                     <div class="card-header">{{ __('Product location list') }}
-                        <td><a href="{{route('prod-location.create')}}" id="add-btn-location" class="btn btn-primary col-2 float-right">
+                        <td><a href="{{route('prod-location.create')}}" id="add-btn-location"
+                               class="btn btn-primary col-2 float-right">
                                 Add location
                             </a>
                         </td>
@@ -31,7 +32,8 @@
                                     <td>{{$location->position}}</td>
                                     <td>{{$location->rack}}</td>
                                     <td>{{$location->queue}}</td>
-                                    <td><a href="{{route('prod-location.edit', $location->id)}}" class="btn btn-primary">edit</a></td>
+                                    <td><a href="{{route('prod-location.edit', $location->id)}}"
+                                           class="btn btn-primary">edit</a></td>
                                     <form method="POST" action="{{route('prod-location.delete', $location->id)}}">
                                         @csrf
                                         @method('DELETE')

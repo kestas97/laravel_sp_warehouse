@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manufacturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManufacturerController extends Controller
 {
@@ -11,6 +12,7 @@ class ManufacturerController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         $data['manufacturers'] = Manufacturer::paginate(13);
@@ -29,7 +31,6 @@ class ManufacturerController extends Controller
             'name' => 'required|max:20'
         ]);
         $manufacturer = new Manufacturer();
-
         $manufacturer->name = $request->post('name');
         $manufacturer->save();
         return back()->with('message', 'Manufacturer is created');

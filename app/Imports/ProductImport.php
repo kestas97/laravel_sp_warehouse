@@ -8,26 +8,9 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Collection;
+
 class ProductImport implements ToCollection, WithHeadingRow
 {
-//    /**
-//    * @param array $row
-//    *
-//    * @return \Illuminate\Database\Eloquent\Model|null
-//    */
-//    public function model(array $row)
-//    {
-//        return new Product([
-//            'title' => $row['title'],
-//            'manufacturer_id' => $row['manufacturer_id'],
-//            'category_id' => $row['category_id'],
-//            'flavor_id' => $row['flavor_id'],
-//            'quantity' => $row['quantity'],
-//            'location_id' => $row['location_id'],
-//            'image' => $row['image']
-//
-//        ]);
-//    }
 
     public function collection(Collection $rows)
     {
@@ -45,12 +28,12 @@ class ProductImport implements ToCollection, WithHeadingRow
         foreach ($rows as $row) {
             Product::updateOrCreate([
                 'title' => $row['title'],
-            'manufacturer_id' => $row['manufacturer_id'],
-            'category_id' => $row['category_id'],
-            'flavor_id' => $row['flavor_id'],
-            'quantity' => $row['quantity'],
-            'location_id' => $row['location_id'],
-            'image' => $row['image']
+                'manufacturer_id' => $row['manufacturer_id'],
+                'category_id' => $row['category_id'],
+                'flavor_id' => $row['flavor_id'],
+                'quantity' => $row['quantity'],
+                'location_id' => $row['location_id'],
+                'image' => $row['image']
             ]);
         }
     }

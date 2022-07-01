@@ -5,7 +5,8 @@
         <div class="row justify-content-center" style="margin: 0 auto 0 auto">
             <div class="col-md-8">
                 <div class="card show-product">
-                    <td><a href="{{route('product.edit', $product->id)}}" id="edit-roduct" class="btn btn-primary  ">edit</a></td>
+                    <td><a href="{{route('product.edit', $product->id)}}" id="edit-roduct" class="btn btn-primary  ">edit</a>
+                    </td>
 
                     <div class="card-header">{{$product->title}}</div>
                     <td>
@@ -20,7 +21,7 @@
                                 Category: {{$product->category->name}}
                             </p>
                             <p>
-                               Flavor: {{$product->flavor->name}}
+                                Flavor: {{$product->flavor->name}}
                             </p>
                             <p>
                                 Quantity: {{$product->quantity}}
@@ -33,16 +34,15 @@
                 </div>
             </div>
         </div>
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @endsection
 

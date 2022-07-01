@@ -11,9 +11,9 @@
                         <form class="form " method="post" action="{{route('prod-location.store' )}}">
                             @csrf
                             <div class="form-group">
-                                <input  type="text" name="position" class="form-control" placeholder="position">
-                                <input  type="text" name="rack" class="form-control" placeholder="rack">
-                                <input  type="text" name="queue" class="form-control" placeholder="queue">
+                                <input type="text" name="position" class="form-control" placeholder="position">
+                                <input type="text" name="rack" class="form-control" placeholder="rack">
+                                <input type="text" name="queue" class="form-control" placeholder="queue">
                                 <input type="submit" value="Create" class="btn btn-primary">
                                 @if($errors->any())
                                     <div class="alert alert-danger">

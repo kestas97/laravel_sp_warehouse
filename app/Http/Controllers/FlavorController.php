@@ -11,6 +11,7 @@ class FlavorController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         $data['flavors'] = Flavor::paginate(13);

@@ -11,6 +11,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         $data['categories'] = Category::paginate(13);
@@ -26,7 +27,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'name' => 'required|max:20'
+            'name' => 'required|max:20'
         ]);
         $category = new Category();
 

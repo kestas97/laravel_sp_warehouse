@@ -6,7 +6,8 @@
             <div class="col-md-8">
                 <div class="card flavors">
                     <div class="card-header">{{ __('Flavors list') }}
-                        <td><a href="{{route('flavor.create')}}" id="add-btn flavors" class="btn btn-primary col-2 float-right">Add flavor</a></td>
+                        <td><a href="{{route('flavor.create')}}" id="add-btn flavors"
+                               class="btn btn-primary col-2 float-right">Add flavor</a></td>
                     </div>
 
                     <div class="card-body">
@@ -22,7 +23,8 @@
                                 <tr>
                                     <td>{{$flavor->id}}</td>
                                     <td>{{$flavor->name}}</td>
-                                    <td><a href="{{route('flavor.edit', $flavor->id)}}" class="btn btn-primary">edit</a></td>
+                                    <td><a href="{{route('flavor.edit', $flavor->id)}}" class="btn btn-primary">edit</a>
+                                    </td>
                                     <form method="POST" action="{{route('flavor.delete', $flavor->id)}}">
                                         @csrf
                                         @method('DELETE')

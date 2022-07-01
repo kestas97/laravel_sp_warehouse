@@ -21,7 +21,7 @@ class ImportController extends Controller
 
     public function store()
     {
-        Excel::import(new ProductImport(),request()->file('file'), \Maatwebsite\Excel\Excel::CSV);
+        Excel::import(new ProductImport(), request()->file('file'), \Maatwebsite\Excel\Excel::CSV);
 
         return back()->with('message', 'All products is added');
     }

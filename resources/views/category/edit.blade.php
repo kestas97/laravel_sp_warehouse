@@ -12,7 +12,8 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <input value="{{$category->name}}" type="text" name="name" class="form-control" placeholder="category">
+                                <input value="{{$category->name}}" type="text" name="name" class="form-control"
+                                       placeholder="category">
                                 <input type="submit" value="Update" class="btn btn-primary">
                                 @if($errors->any())
                                     <div class="alert alert-danger">

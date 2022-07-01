@@ -6,8 +6,10 @@
             <div class="col-md-8">
                 <div class="card product-list">
                     <div class="card-header">{{ __('Products list') }}
-                        <td><a href="{{route('product-import.create')}}" id="import-btn" class="btn btn-success col-2 float-right">Add CSV</a> </td>
-                        <td><a href="{{route('product.create')}}" id="add-btn" class="btn btn-primary col-2 float-right">Add product</a></td>
+                        <td><a href="{{route('product-import.create')}}" id="import-btn"
+                               class="btn btn-success col-2 float-right">Add CSV</a></td>
+                        <td><a href="{{route('product.create')}}" id="add-btn"
+                               class="btn btn-primary col-2 float-right">Add product</a></td>
 
                     </div>
 
@@ -27,23 +29,25 @@
                                 <th scope="col"> Download-QR</th>
 
 
-
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($products as $product)
                                 <tr>
-                                    <td><img src="/public/image/{{$product->image}}" style="height: 200px; width: 200px";>
-                                            </td>
-                                    <td><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a> </td>
+                                    <td><img src="/public/image/{{$product->image}}" style="height: 200px; width: 200px">
+                                    </td>
+                                    <td><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a></td>
                                     <td>{{$product->flavor->name}}</td>
                                     <td>{{$product->manufacturer->name}}</td>
                                     <td>{{$product->category->name}}</td>
                                     <td>{{$product->location->position . '-' .$product->location->rack . '-' .$product->location->queue }}</td>
                                     <td>{{$product->quantity}}</td>
-                                    <td><a href="{{route('generate', $product->id)}}" class="btn btn-primary" >Generate</a> </td>
-                                    <td><a href="{{route('qrcode.download', $product->id)}}" class="btn btn-primary" download="svg">Download</a> </td>
-                                    <td><a href="{{route('product.edit', $product->id)}}" class="btn btn-primary">edit</a></td>
+                                    <td><a href="{{route('generate', $product->id)}}"
+                                           class="btn btn-primary">Generate</a></td>
+                                    <td><a href="{{route('qrcode.download', $product->id)}}" class="btn btn-primary"
+                                           download="svg">Download</a></td>
+                                    <td><a href="{{route('product.edit', $product->id)}}"
+                                           class="btn btn-primary">edit</a></td>
                                     <form method="POST" action="{{route('product.destroy', $product->id)}}">
                                         @csrf
                                         @method('DELETE')

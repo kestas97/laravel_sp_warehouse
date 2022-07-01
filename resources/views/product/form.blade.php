@@ -8,11 +8,12 @@
                     <div class="card-header">{{ __('Create new products') }}</div>
 
                     <div class="card-body">
-                        <form class="form " method="post" action="{{route('product.store' )}}" enctype="multipart/form-data">
+                        <form class="form " method="post" action="{{route('product.store' )}}"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <input type="file" name="image" class="form-control" placeholder="product image">
-                                <input  type="text" name="title" class="form-control" placeholder="title">
+                                <input type="text" name="title" class="form-control" placeholder="title">
                                 <select name="manufacturer_id" class="form-control">
                                     <option>Manufacturer</option>
                                     @foreach($manufacturers as $manufacturer )
@@ -34,10 +35,11 @@
                                 <select name="location_id" class="form-control">
                                     <option>Position</option>
                                     @foreach($locations as $location)
-                                        <option value="{{$location->id}}">{{$location->position . '-' . $location->rack . '-' . $location->queue}}</option>
+                                        <option
+                                            value="{{$location->id}}">{{$location->position . '-' . $location->rack . '-' . $location->queue}}</option>
                                     @endforeach
                                 </select>
-                                <input  type="text" name="quantity" class="form-control" placeholder="Quantyti">
+                                <input type="text" name="quantity" class="form-control" placeholder="Quantyti">
                                 <input type="submit" value="Create" class="btn btn-primary">
                                 @if($errors->any())
                                     <div class="alert alert-danger">

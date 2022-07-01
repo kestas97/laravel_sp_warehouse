@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
-
-
 class ProductController extends Controller
 {
     public function __construct()
@@ -52,17 +50,17 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
+     * @param \App\Http\Requests\StoreProductRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreProductRequest $request)
     {
         $product = new Product();
 
-        if ($request->file('image')){
+        if ($request->file('image')) {
             $file = $request->file('image');
-            $filename = date('YmdHi'). $file->getClientOriginalName();
-            $file->move(public_path('public/image'), $filename );
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/image'), $filename);
             $product['image'] = $filename;
         }
         $product->title = $request->post('title');
@@ -79,7 +77,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -92,7 +90,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -109,16 +107,16 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
+     * @param \App\Http\Requests\UpdateProductRequest $request
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        if ($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $filename = date('YmdHi'). $file->getClientOriginalName();
-            $file->move(public_path('public/image'), $filename );
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/image'), $filename);
             $product['image'] = $filename;
         }
 
@@ -136,7 +134,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -146,26 +144,5 @@ class ProductController extends Controller
 
         return back()->with('message', 'Product is deleted');
     }
-
-    public function generateQr($id)
-    {
-
-        $data = Product::findOrFail($id);
-        $qrcode = QrCode::size(400)->format('svg')->generate('http://127.0.0.1:8000/product/'.$data->id);
-        return view('product.qrcode', compact('qrcode'));
-    }
-
-    public function downloadQr($id)
-    {
-        $data = Product::findOrFail($id);
-        $qrcode = QrCode::size(400)->format('svg')->generate('http://127.0.0.1:8000/product/'.$data->id);
-        return view('product.qrcode-download', compact('qrcode'));
-    }
-
-    public function newfunction()
-    {
-
-    }
-
 
 }

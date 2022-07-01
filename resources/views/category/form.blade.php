@@ -11,7 +11,7 @@
                         <form class="form " method="post" action="{{route('category.store' )}}">
                             @csrf
                             <div class="form-group">
-                                <input  type="text" name="name" class="form-control" placeholder="category">
+                                <input type="text" name="name" class="form-control" placeholder="category">
                                 <input type="submit" value="Create" class="btn btn-primary">
                                 @if($errors->any())
                                     <div class="alert alert-danger">
