@@ -11488,6 +11488,16 @@ textarea.form-control-lg {
     height: 100px;
     font-size: 20px;
 }
+#input-alert{
+    position: absolute;
+    display: flex;
+    left:550px;
+    top: 60px;
+    width: 20%;
+    height: 90px;
+    z-index: 2;
+    font-size: 20px;
+}
 
 
 

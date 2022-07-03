@@ -68,6 +68,11 @@
                             <input type="search" id="search" name="search" class="position-absolute-parent"
                                    placeholder="search product" autocomplete="off">
                             <button type="submit" class="btn btn-primary col-2 float-right search-btn">Search</button>
+                            @if(session()->has('error'))
+                                <div class="alert alert-danger" id="input-alert">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
                         </form>
                         <!-- Search autocomplite result -->
                         <div id="result" class="position-absolute-child" style="display:none">

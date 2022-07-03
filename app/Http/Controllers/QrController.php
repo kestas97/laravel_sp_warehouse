@@ -19,14 +19,14 @@ class QrController extends Controller
 
         $data = Product::findOrFail($id);
         $qrcode = QrCode::size(400)->format('svg')->generate('http://127.0.0.1:8000/product/' . $data->id);
-        return view('product.qrcode', compact('qrcode'));
+        return view('qr-code.generate', compact('qrcode'));
     }
 
     public function downloadQr($id)
     {
         $data = Product::findOrFail($id);
         $qrcode = QrCode::size(400)->format('svg')->generate('http://127.0.0.1:8000/product/' . $data->id);
-        return view('product.qrcode-download', compact('qrcode'));
+        return view('qr-code.download', compact('qrcode'));
     }
 
 }

@@ -10,7 +10,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\ProductLocation;
 use Illuminate\Http\Request;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 
 class ProductController extends Controller

@@ -60,7 +60,7 @@ Route::resource('/product', 'App\Http\Controllers\ProductController');
 
 Route::controller(\App\Http\Controllers\QrController::class)->group(function () {
     Route::get('/qrcode/{id}', 'generateQr')->name('generate');
-    Route::get('/download/qr/{id}', 'downloadQr')->name('qrcode.download');
+    Route::get('/download/qr-code/{id}', 'downloadQr')->name('qrcode.download');
 });
 
 Route::controller(\App\Http\Controllers\SearchController::class)->group(function () {

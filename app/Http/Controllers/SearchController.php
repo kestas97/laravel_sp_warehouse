@@ -14,21 +14,21 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->input('search');
-
-        $data['products'] = Product::where('title', 'like', "%$search%")->limit(10)->get();
-
+        if (!empty($search = $request->input('search'))){
+            $data['products'] = Product::where('title', 'like', "%".$search."%")->limit(10)->get();
+        }
 
         return view('search.autocomplete', $data);
     }
 
     public function find(Request $request)
     {
+        if(!empty($search = $request->input('search'))){
+            $data['products'] = Product::where('title', 'like', "%$search%")->paginate(13);
+        }else{
+            return back()->with('error', 'Input is empty!!');
+        }
 
-
-        $search = $request->input('search');
-
-        $data['products'] = Product::where('title', 'like', "%$search%")->paginate(13);
         return view('search.result', $data);
     }
 }
