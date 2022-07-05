@@ -54,7 +54,7 @@ class ProductLocationController extends Controller
             'rack' => 'required|numeric',
             'queue' => 'required|numeric'
         ]);
-        $prodLocation = ProductLocation::find($prodLocationId);
+        $prodLocation = ProductLocation::findOrFail($prodLocationId);
         $prodLocation->position = $request->post('position');
         $prodLocation->rack = $request->post('rack');
         $prodLocation->queue = $request->post('queue');
@@ -65,7 +65,7 @@ class ProductLocationController extends Controller
 
     public function destroy($id)
     {
-        $prodLocation = ProductLocation::find($id);
+        $prodLocation = ProductLocation::findOrFail($id);
         $prodLocation->delete();
         return back()->with('message', 'Product location is deleted');
     }

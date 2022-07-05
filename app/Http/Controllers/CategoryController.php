@@ -50,7 +50,7 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|max:20'
         ]);
-        $category = Category::find($categoryId);
+        $category = Category::findOrFail($categoryId);
         $category->name = $request->post('name');
         $category->save();
         return back()->with('message', 'Category is edited');
@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         $category->delete();
         return back()->with('message', 'Category is deleted');
     }

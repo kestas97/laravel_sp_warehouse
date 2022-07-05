@@ -49,7 +49,7 @@ class ManufacturerController extends Controller
         $request->validate([
             'name' => 'required|max:20'
         ]);
-        $manufacturer = Manufacturer::find($manufacturerId);
+        $manufacturer = Manufacturer::findOrFail($manufacturerId);
         $manufacturer->name = $request->post('name');
         $manufacturer->save();
         return back()->with('message', 'Manufacturer is edited');
@@ -58,7 +58,7 @@ class ManufacturerController extends Controller
 
     public function destroy($id)
     {
-        $manufacturer = Manufacturer::find($id);
+        $manufacturer = Manufacturer::findOrFail($id);
         $manufacturer->delete();
         return back()->with('message', 'Manufacturer is deleted');
     }

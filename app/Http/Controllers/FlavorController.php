@@ -50,7 +50,7 @@ class FlavorController extends Controller
         $request->validate([
             'name' => 'required|max:20'
         ]);
-        $flavor = Flavor::find($flavorId);
+        $flavor = Flavor::findOrFail($flavorId);
         $flavor->name = $request->post('name');
         $flavor->save();
         return back()->with('message', 'Flavor is edited');
@@ -59,7 +59,7 @@ class FlavorController extends Controller
 
     public function destroy($id)
     {
-        $flavor = Flavor::find($id);
+        $flavor = Flavor::findOrFail($id);
         $flavor->delete();
         return back()->with('message', 'Flavor is deleted');
     }
