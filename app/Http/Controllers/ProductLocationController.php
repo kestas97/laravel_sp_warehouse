@@ -42,9 +42,7 @@ class ProductLocationController extends Controller
 
     public function edit($id)
     {
-
         $data['prodLocation'] = ProductLocation::findOrFail($id);
-
 
         return view('product-Location.edit', $data);
     }

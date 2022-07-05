@@ -79,6 +79,3 @@ Route::controller(\App\Http\Controllers\AdminController::class)->group(function 
     Route::delete('/delete-user/{userId}', 'destroy')->name('destroy.user');
 });
 
-
-
-

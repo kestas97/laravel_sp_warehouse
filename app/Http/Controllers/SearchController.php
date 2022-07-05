@@ -24,7 +24,7 @@ class SearchController extends Controller
     public function find(Request $request)
     {
         if(!empty($search = $request->input('search'))){
-            $data['products'] = Product::where('title', 'like', "%$search%")->paginate(13);
+            $data['products'] = Product::where('title', 'like', "%".$search."%")->paginate(13);
         }else{
             return back()->with('error', 'Input is empty!!');
         }
