@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     public function activateUser($userId)
     {
-        $user = User::find($userId);
+        $user = User::findOrFail($userId);
         $user->active = 1;
         $user->save();
         return back()->with('message', 'User is activated');
@@ -33,7 +33,7 @@ class AdminController extends Controller
 
     public function deactivateUser($userId)
     {
-        $user = User::find($userId);
+        $user = User::findOrFail($userId);
         $user->active = 0;
         $user->save();
         return back()->with('message', 'User is inactivated');
@@ -41,7 +41,7 @@ class AdminController extends Controller
 
     public function destroy($userId)
     {
-        $user = User::find($userId);
+        $user = User::findOrFail($userId);
         $user->delete();
         return back()->with('message', 'User is deleted');
     }
